@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>گروه چت + وویس چت</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="connection-banner" class="banner hidden"></div>
+
+  <!-- Login -->
+  <div id="login-screen" class="screen">
+    <div class="login-box">
+      <h1>ورود</h1>
+      <input id="name-input" type="text" placeholder="اسمت رو بنویس..." maxlength="24" />
+      <button id="join-btn">ورود</button>
+      <p id="login-error" class="error"></p>
+    </div>
+  </div>
+
+  <!-- Main app -->
+  <div id="app-screen" class="screen hidden">
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <span id="my-name"></span>
+        <button id="voice-toggle-btn">🎙 ورود به وویس چت</button>
+        <button id="mute-toggle-btn" class="hidden">🔇 قطع میکروفون</button>
+      </div>
+
+      <h3>آنلاین‌ها</h3>
+      <ul id="online-list"></ul>
+
+      <div class="owner-panel">
+        <details>
+          <summary>پنل مدیریت (دولوپر)</summary>
+          <input id="owner-token" type="password" placeholder="Owner token" />
+          <button id="clear-chat-btn">پاک کردن چت گروه</button>
+        </details>
+      </div>
+    </aside>
+
+    <main id="chat-area">
+      <div class="chat-header">
+        <span id="chat-title">چت گروه</span>
+        <button id="back-to-group-btn" class="hidden">بازگشت به گروه</button>
+      </div>
+      <div id="messages"></div>
+      <div class="chat-input-row">
+        <input id="message-input" type="text" placeholder="پیام بنویس..." />
+        <button id="send-btn">ارسال</button>
+      </div>
+    </main>
+  </div>
+
+  <div id="voice-audios"></div>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

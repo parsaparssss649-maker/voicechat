@@ -1,0 +1,22 @@
+# Optional: lets Render read your service config straight from the repo
+# (Blueprint deploy). Not required -- you can also just click through the
+# Render dashboard manually, see README.md.
+services:
+  - type: web
+    name: voicechat-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: OWNER_TOKEN
+        sync: false
+      - key: TURN_URL
+        sync: false
+      - key: TURN_USERNAME
+        sync: false
+      - key: TURN_CREDENTIAL
+        sync: false
